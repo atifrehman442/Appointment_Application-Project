@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local1="clr-namespace:AppointmentApplication.AppointmentApplication.Behaviors"
+             NavigationPage.HasBackButton="False"
+             x:Class="AppointmentApplication.AppointmentApplication.View.Login">
+    <ContentPage.Content>
+        <StackLayout x:Name="LogIn">
+            <StackLayout Padding="15" Margin="0,60,0,0">
+                
+                <Frame HeightRequest="80" WidthRequest="80" Padding="0" Margin="0" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="20" BackgroundColor="Beige">
+                    <Image Source="splash1" Aspect="AspectFit"></Image>
+                </Frame>
+
+                <StackLayout Orientation="Horizontal">
+                    <Entry Text="{Binding EnterEmail}" Placeholder="Enter Email" x:Name="emailentry" Keyboard="Email" Margin="0,40,0,0" WidthRequest="340">
+                        <Entry.Behaviors>
+                            <local1:EntryEmailBehavior/>
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Entry  x:Name="MyEntry" Text="{Binding EnterPassword}" Placeholder="Enter Password" IsPassword="True" WidthRequest="340">
+                    <Entry.Behaviors>
+                        <local1:EntryPasswordBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
+
+                <ImageButton Source="eyeoff.png" HeightRequest="20" HorizontalOptions="EndAndExpand" 
+                             BackgroundColor="Transparent" Clicked="ImageButton_Clicked" />
+                    
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="LogIn" BackgroundColor="#80ced6" TextColor="White" CornerRadius="15" Command="{Binding LoginCommand}" Margin="0,10,0,0" WidthRequest="340" />
+                </StackLayout>
+                <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Do Not Have Account? ">
+
+                                </Span>
+                                <Span Text="Sign Up Now" TextColor="#08b4ff">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureLogin"/>
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

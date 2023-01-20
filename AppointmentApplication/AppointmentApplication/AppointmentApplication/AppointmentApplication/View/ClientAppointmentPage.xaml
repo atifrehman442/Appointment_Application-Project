@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+             xmlns:richtexteditor="clr-namespace:Syncfusion.XForms.RichTextEditor;assembly=Syncfusion.SfRichTextEditor.XForms"
+             x:Class="AppointmentApplication.AppointmentApplication.View.ClientAppointmentPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10">
+
+                <Label Text="Client Appointment Page" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" TextColor="Black" />
+                <syncfusion:SfCalendar SelectedDate="{Binding SelectedDate}" />
+                <TimePicker Time="{Binding SelectTime}"/>
+                <richtexteditor:SfRichTextEditor VerticalOptions="FillAndExpand" Text= "{Binding Description}" PlaceHolder="Description" />
+
+                <Button Text="Book" BackgroundColor="#80ced6" TextColor="White" CornerRadius="10" Command="{Binding ClientAppointmentCommand}" />
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

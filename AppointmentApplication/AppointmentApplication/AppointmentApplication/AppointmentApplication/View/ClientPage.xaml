@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasBackButton="False"
+             x:Class="AppointmentApplication.AppointmentApplication.View.ClientPage">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"  Padding="10">
+            <StackLayout HorizontalOptions="Start">
+                <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Logout" TextColor="white">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="CenterAndExpand" Margin="30,0,0,0">
+                <Label x:Name="clientname" TextColor="white" Margin="50,0,0,0" FontAttributes="Bold" FontSize="Medium" />
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="EndAndExpand">
+                <Label Margin="50,0,0,0">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="MyAppointments" TextColor="white">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureAppoinment"/>
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            </StackLayout>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="FrameStyle" TargetType="Frame">
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="WidthRequest" Value="40"/>
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="VerticalOptions" Value="Start"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="Padding" Value="0"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding Business}" RowHeight="180" 
+                      ItemSelected="ListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell>
+                            <Frame
+                            InputTransparent="True"
+                            Margin="10,5" Padding="10" CornerRadius="15"
+                            HeightRequest="125" BackgroundColor="#d5f4e6">
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal" Margin="50,0,0,0">
+                                    <Label Text="Business Name =" FontAttributes="Bold" FontSize="Medium"/>
+                                    <Label Text="{Binding Firstname}" FontAttributes="Bold" FontSize="Medium"/>
+                                    <Label Text="{Binding Lastname}" FontAttributes="Bold" FontSize="Medium"/>
+                                    </StackLayout>
+                                    <Label Text="Availability" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center" />
+                                <StackLayout Orientation="Horizontal" Spacing="27" Padding="15">
+                                    <Frame Style="{StaticResource FrameStyle}">
+                                        <Label Text="su" TextColor="black" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                    </Frame>
+                                    <Frame Style="{StaticResource FrameStyle}">
+                                        <Label Text="mo" TextColor="black" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                    </Frame>
+                                    <Frame Style="{StaticResource FrameStyle}">
+                                        <Label Text="tu" TextColor="black" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                    </Frame>
+                                    <Frame Style="{StaticResource FrameStyle}">
+                                        <Label Text="we" TextColor="black" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                    </Frame>
+                                    <Frame Style="{StaticResource FrameStyle}">
+                                        <Label Text="th" TextColor="black" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                    </Frame>
+                                    <Frame Style="{StaticResource FrameStyle}">
+                                        <Label Text="fr" TextColor="black" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                    </Frame>
+                                </StackLayout>
+                                    <Label Text="09:00 AM - 06:00 PM" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center" />
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

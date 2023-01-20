@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local1="clr-namespace:AppointmentApplication.AppointmentApplication.Behaviors"
+             NavigationPage.HasBackButton="False"
+             x:Class="AppointmentApplication.AppointmentApplication.View.SignUp">
+    <ContentPage.Content>
+        <StackLayout x:Name="SignupStack" Padding="10">
+            <StackLayout >
+                <Frame HeightRequest="80" WidthRequest="80" Padding="0" Margin="0" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="20" BackgroundColor="Beige">
+                    <Image Source="splash1" Aspect="AspectFit"></Image>
+                </Frame>
+
+                <Entry Text="{Binding Firstname}" Placeholder="Enter Firstname" Keyboard="Text" Margin="0,30,0,0">
+                    <Entry.Behaviors>
+                        <local1:EntryTextBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Entry Text="{Binding Lastname}" Placeholder="Enter LastName" Keyboard="Text">
+                    <Entry.Behaviors>
+                        <local1:EntryTextBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Entry Text="{Binding Email}" Placeholder="Enter Email" Keyboard="Email">
+                    <Entry.Behaviors>
+                        <local1:EntryEmailBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Entry Text="{Binding Phone}" Placeholder="Enter Phone" Keyboard="Numeric">
+                    <Entry.Behaviors>
+                        <local1:EntryPhoneBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Entry Text="{Binding Password}" Placeholder="Enter Password">
+                    <Entry.Behaviors>
+                        <local1:EntryPasswordBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Entry Text="{Binding Confirmpassword}" Placeholder="Enter Confirmpassword">
+                    <Entry.Behaviors>
+                        <local1:EntryPasswordBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Picker Title="User Type" SelectedItem="{Binding picker}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Business</x:String>
+                            <x:String>Client</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Button Text="SignUp" BackgroundColor="#80ced6" TextColor="White" CornerRadius="10" Command="{Binding CommandSignup}"/>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="allready member?">
+
+                            </Span>
+                            <Span Text="Login Now" TextColor="#08b4ff">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureSignup" />
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

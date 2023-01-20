@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasBackButton="False"
+             x:Name="BussinessPage"
+             x:Class="AppointmentApplication.AppointmentApplication.View.BusinessPage">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" Padding="10" >
+            <StackLayout HorizontalOptions="Start">
+                <Label >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Logout" TextColor="white">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureLogout"/>
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+                </StackLayout>
+            
+            <StackLayout HorizontalOptions="CenterAndExpand" Margin="30,0,0,0">
+            <Label x:Name="Business" TextColor="white"  FontAttributes="Bold" FontSize="Medium"/>
+            </StackLayout>
+            
+            <StackLayout HorizontalOptions="EndAndExpand">
+                <Label >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="AddAppointment" TextColor="white">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureMyappointment"/>
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+                </StackLayout>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding Client}" RowHeight="220">
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell>
+                            <Frame
+                            InputTransparent="True"
+                            Margin="10,5" Padding="10" CornerRadius="15"
+                            HeightRequest="125" BackgroundColor="#d5f4e6"
+                                >
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal" Margin="50,0,0,0">
+                                        <Label Text="Business Name =" FontAttributes="Bold" FontSize="Medium"/>
+                                        <Label Text="{Binding BusinessName}" FontAttributes="Bold" FontSize="Medium"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Margin="50,0,0,0">
+                                        <Label Text="Client Name =" FontAttributes="Bold" FontSize="Medium"/>
+                                        <Label Text="{Binding ClientName}" FontAttributes="Bold" FontSize="Medium"/>
+                                    </StackLayout>
+                                    <Label Text="{Binding Description}" FontSize="Medium" HorizontalOptions="Center" />
+                                    <Label Text="{Binding Phone}" FontSize="Medium" HorizontalOptions="Center" />
+                                    <Label Text="{Binding Date}"  FontSize="Medium" HorizontalOptions="Center" />
+                                    <Label Text="{Binding Time}"  FontSize="Medium" HorizontalOptions="Center" />
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
